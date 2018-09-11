@@ -12,7 +12,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
-    render json: User.create(accommodation_params)
+    render json: User.create(user_params)
   end
 
   def update
