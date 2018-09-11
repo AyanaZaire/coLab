@@ -8,16 +8,17 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def show
-      render json: @user
+    @user = User.find(params[:id])
+    render json: @user, status: 200
   end
 
   def create
-    render json: User.create(accommodation_params)
+    render json: User.create(user_params)
   end
 
   def update
     @user.update(user_params)
-    if @note.save
+    if @user.save
       render json: @note, status: :accepted
     end
   end
